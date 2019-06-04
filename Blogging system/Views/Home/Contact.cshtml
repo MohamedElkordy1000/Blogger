@@ -1,0 +1,36 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "Contact";
+    if (User.Identity.GetUserId() != null)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            Layout = "~/views/shared/Basicadmin.cshtml";
+        }
+
+        else if (User.IsInRole("Member"))
+        {
+            Layout = "~/views/shared/Member.cshtml";
+        }
+
+    }
+    else
+    {
+        Layout = "~/views/shared/Anonymous.cshtml";
+    }
+    
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    Giza<br />
+    Redmond, WA 01021948402<br />
+    <abbr title="Phone">P:</abbr>
+    425.555.0100
+</address>
+
+<address>
+    <strong>Support:</strong>   <a href="mailto:Support@example.com">mohamedelkordy@google.com</a><br />
+    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">mohamedelkordy21@google.com</a>
+</address>

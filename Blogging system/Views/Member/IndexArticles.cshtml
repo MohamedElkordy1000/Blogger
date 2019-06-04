@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Blogging_system.Models.Article>
+
+@{
+    ViewBag.Title = "Index Articles";
+    Layout = "~/Views/Shared/Member.cshtml";
+}
+
+<center>
+    <h2 style="background-color:antiquewhite"><b >All Article</b></h2>
+</center>
+<hr />
+<div class="container">
+    <div class="col-md-12">
+        @foreach (var item in Model)
+        {
+        <center> 
+              <h1>@Html.DisplayFor(modelItem => item.ArticleTitle)</h1>
+        </center>
+            <p>
+                @Html.DisplayFor(modelItem => item.ArticleBody)
+            </p>
+            <div>
+                <span class="badge">@Html.DisplayFor(modelItem => item.Publish_date)</span>
+                <div class="pull-right">
+                    <span class="label label-info">@Html.DisplayFor(modelItem => item.Category.Category_Name)</span> 
+                </div>
+            </div>
+
+            <hr>
+        }
+    </div>
+ </div>
+
+
+
+
+
+
+
+

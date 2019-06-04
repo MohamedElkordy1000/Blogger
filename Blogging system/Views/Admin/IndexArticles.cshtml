@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Blogging_system.Models.Article>
+
+@{
+    ViewBag.Title = "Index Articles";
+    Layout = "~/Views/Shared/BasicAdmin.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New ", "CreateArticle")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Category.Category_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleTitle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArticleBody)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Publish_date)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Category.Category_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleTitle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArticleBody)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Publish_date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditArticle", new { id=item.ArticleId }) |
+            @Html.ActionLink("Article Details", "ArticleDetails", new { id=item.ArticleId }) |
+            @Html.ActionLink("Delete", "DeleteArticle", new { id=item.ArticleId })
+        </td>
+    </tr>
+}
+
+</table>

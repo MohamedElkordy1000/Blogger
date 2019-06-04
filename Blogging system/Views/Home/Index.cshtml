@@ -1,0 +1,125 @@
+﻿@using Microsoft.AspNet.Identity;
+@{
+
+    if (User.Identity.GetUserId() != null)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            Layout = "~/views/shared/Basicadmin.cshtml";
+        }
+
+        else if (User.IsInRole("Member"))
+        {
+            Layout = "~/views/shared/Member.cshtml";
+        }
+
+    }
+    else
+    {
+        Layout = "~/views/shared/Anonymous.cshtml";
+    }
+}
+
+
+<div id="carouselBlk" style="margin-top:90px;">
+    <div id="myCarousel" class="carousel slide">
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="container">
+                    <div class="row fh5co-feature fh5co-reverse">
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-copy">
+                                <div class="fh5co-copy-inner">
+                                    <h2>Pixel Perfect</h2>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4  col-lg-offset-2">
+                            <div class="fh5co-img text-left">
+                                <figure class="fh5co-figure animate-box fadeInUp animated-fast">
+                                    <img class="img-2" src="~/Images/book_black.png" alt="Free Website Template by FreeHTML5.co">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="row fh5co-feature fh5co-reverse">
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-copy">
+                                <div class="fh5co-copy-inner">
+                                    <h2>Keep It Simple</h2>
+                                    <p>
+                                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                                        Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+                                    </p>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-img text-left">
+                                <figure class="fh5co-figure animate-box fadeInUp animated-fast">
+                                    <img class="img-2" src="~/Images/book_white.png" alt="Free Website Template by FreeHTML5.co">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="item">
+                <div class="container">
+                    <div class="row fh5co-feature fh5co-reverse">
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-copy">
+                                <div class="fh5co-copy-inner">
+                                    <h2>Pixel Perfect</h2>
+                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-img text-left">
+                                <figure class="fh5co-figure animate-box fadeInUp animated-fast">
+                                    <img class="img-2" src="~/Images/book_black.png" alt="Free Website Template by FreeHTML5.co">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="container">
+                    <div class="row fh5co-feature fh5co-reverse">
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-copy">
+                                <div class="fh5co-copy-inner">
+                                    <h2>Keep It Simple</h2>
+                                    <p>
+                                        Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.
+                                        Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-lg-offset-2">
+                            <div class="fh5co-img text-left">
+                                <figure class="fh5co-figure animate-box fadeInUp animated-fast">
+                                    <img class="img-2" src="~/Images/book_white.png" alt="Free Website Template by FreeHTML5.co">
+                                </figure>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+</div>

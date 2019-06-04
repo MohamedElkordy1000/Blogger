@@ -1,0 +1,56 @@
+﻿@using Microsoft.AspNet.Identity
+@using Blogging_system.Models;
+@{
+    string userid;
+    ApplicationUser user_L;
+    string fullName = "";
+    string imgsrc = "";
+    if (User.Identity.GetUserId() != null)
+    {
+        userid = User.Identity.GetUserId();
+        ApplicationDbContext db = new ApplicationDbContext();
+        user_L = db.Users.SingleOrDefault(u => u.Id == userid);
+        fullName = user_L.FirstName + " " + user_L.LastName;
+        byte[] Image = db.Users.SingleOrDefault(e => e.Id == userid).Image;
+
+        if (Image != null)
+        {
+            var base64 = Convert.ToBase64String(Image);
+            imgsrc = string.Format("data:image/jpg;base64,{0}", base64);
+        }
+
+    }
+}
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li style="align-items:baseline">
+                <img alt="Picture" src='@imgsrc' id="profile-image1" class="img-circle" width="30" height="30" style="display:inline-block; cursor:pointer;" onclick=" myFunction()">
+                @Html.ActionLink(fullName, "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage", style = "display:inline-block;" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Sign out</a></li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+<script>
+    function myFunction() {
+
+        //window.location.href = "http://localhost:50254/Employee/Index";
+        //window.location.href = location.protocol + '//' + location.host + "/Employee/Index";
+        //console.log(window.location.href)
+    }
+
+
+
+</script>

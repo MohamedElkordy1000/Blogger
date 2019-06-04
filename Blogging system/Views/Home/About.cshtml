@@ -1,0 +1,32 @@
+﻿@using Microsoft.AspNet.Identity
+@{
+    ViewBag.Title = "About";
+
+
+    if (User.Identity.GetUserId() != null)
+    {
+        if (User.IsInRole("Admin"))
+        {
+            Layout = "~/views/shared/Basicadmin.cshtml";
+        }
+        
+        else if (User.IsInRole("Member"))
+        {
+            Layout = "~/views/shared/Member.cshtml";
+        }
+
+    }
+    else
+    {
+        Layout = "~/views/shared/Anonymous.cshtml";
+    }
+}
+<div>
+
+    <h1>About the Website</h1>
+    <p>The Egypt Blog fully supports the educational needs of all members of the Simmons Community—students, faculty, staff, alumnae/i, and guests.</p>
+    <p>Housed in Lefavour Hall on Simmons' main campus, the blog offers a comfortable and productive environment for learning, including an array of group study rooms, meeting rooms, event spaces, and quiet study areas.</p>
+    <p>The Blogs's collections of print and electronic books, journals, and other media, have been developed to enhance the curriculum, and library staff are available to assist users with accessing and using these resources. The Simmons University Archives is located in the Library and houses a collection of University records, publications, manuscripts, photographs, and rare books that document the history of Simmons University.</p>
+    <p>Please enjoy these retrospectives of the library's activities.</p>
+    
+</div>
